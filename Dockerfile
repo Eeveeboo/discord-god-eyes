@@ -1,9 +1,5 @@
 FROM mhart/alpine-node:12 AS BUILD_IMAGE
 
-ENV DISCORD_TOKEN=?
-ENV GUILD_ID=?
-ENV WEBHOOK_URL=?
-
 WORKDIR /app
 
 # Install Supporting Binaries for building
