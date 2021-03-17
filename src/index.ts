@@ -3,6 +3,8 @@ import axios from "axios";
 import eris from "eris";
 if (!env.WEBHOOK_URL?.endsWith("?wait=true")) env.WEBHOOK_URL += "?wait=true";
 const client = new eris.Client(env.DISCORD_TOKEN!);
+client.on("ready", () => console.log("Ready. React to any log message to delete it from it's source channel."));
+client.on("disconnect", () => { console.log("Lost Connection, Reconnecting..."); client.connect(); });
 client.on("messageCreate", message => {
   if (message.guildID !== env.GUILD_ID || message.webhookID) return;
   var log: eris.MessageContent & {

@@ -17,9 +17,6 @@ COPY . .
 RUN yarn run build && \
     npm prune --production
 
-# Check Enviroment variables
-# RUN node dist/env.js
-
 RUN node-prune
 
 FROM mhart/alpine-node:slim-12
@@ -28,7 +25,5 @@ WORKDIR /app
 
 COPY --from=BUILD_IMAGE /app/dist ./dist
 COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
-
-EXPOSE 8080
 
 CMD NODE_ENV=production node dist/index.js
