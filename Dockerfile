@@ -18,7 +18,7 @@ RUN yarn run build && \
     npm prune --production
 
 # Check Enviroment variables
-RUN node dist/env.js
+# RUN node dist/env.js
 
 RUN node-prune
 
