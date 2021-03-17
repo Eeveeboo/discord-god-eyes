@@ -1,7 +1,6 @@
 import env from "./env";
 import axios from "axios";
 import eris from "eris";
-import http from "http";
 if (!env.WEBHOOK_URL?.endsWith("?wait=true")) env.WEBHOOK_URL += "?wait=true";
 const client = new eris.Client(env.DISCORD_TOKEN!);
 client.on("messageCreate", message => {
@@ -44,4 +43,3 @@ client.on("messageReactionAdd", async (_message, emoji) => {
   }).catch(() => { });
 });
 client.connect();
-http.createServer((_, res) => { res.end("Discord God Eyes is Running."); }).listen(8080);
