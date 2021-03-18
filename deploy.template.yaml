@@ -1,0 +1,22 @@
+spec:
+  name: discord-god-eyes
+  region: sfo
+  workers:
+  - name: discord-god-eyes
+  - dockerfile_path: Dockerfile
+    git:
+      branch: master
+      repo_clone_url: https://github.com/eeveeboo/discord-god-eyes.git
+    envs:
+    - key: DISCORD_TOKEN
+      value: ""
+      scope: RUN_TIME
+      type: SECRET
+    - key: GUILD_ID
+      value: ""
+      scope: RUN_TIME
+      type: SECRET
+    - key: WEBHOOK_URL
+      value: ""
+      scope: RUN_TIME
+      type: SECRET
