@@ -3,7 +3,7 @@ spec:
   region: sfo
   workers:
   - name: discord-god-eyes
-  - dockerfile_path: Dockerfile
+    dockerfile_path: Dockerfile
     git:
       branch: master
       repo_clone_url: https://github.com/eeveeboo/discord-god-eyes.git
