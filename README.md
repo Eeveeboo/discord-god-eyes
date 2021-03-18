@@ -3,7 +3,10 @@
 Discod God Eyes is a simple moderation tool I created for Aggregating all the messages from your server into one channel for easier moderation of multiple channels with mobile moderators in particular in mind.
 
 ![A quick demo of the discord-god-eyes channel](./demo.png)
+
 _(Reacting to a message deletes it from the source channel, the bot replies with the 🗑 emoji to let you know it cleaned up the message.)_
+
+</br>
 
 ---
 
@@ -14,6 +17,8 @@ For the easiest setup I recommend using the DigitalOcean deploy button below the
 [![Deploy to DO](https://www.deploytodo.com/do-btn-blue-ghost.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/eeveeboo/discord-god-eyes/tree/master&refcode=6d2df0a41f28)
 
 Or if you're more advanced you can build the image yourself or pull the auto-built one from my repo on [Docker Hub](https://hub.docker.com/repository/docker/eeveeboo/discord-god-eyes)
+
+</br>
 
 ---
 
@@ -34,6 +39,3 @@ place web hook url as the WEBHOOK_URL env variable
 finally grab the ID of your server and place it in the GUILD_ID env variable
 
 From there just start up the container and you're good to go!
-
----
-
