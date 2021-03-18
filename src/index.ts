@@ -1,10 +1,12 @@
 import env from "./env";
 import axios from "axios";
 import eris from "eris";
+import http from "http";
 if (!env.WEBHOOK_URL?.endsWith("?wait=true")) env.WEBHOOK_URL += "?wait=true";
 const client = new eris.Client(env.DISCORD_TOKEN!);
-client.on("ready", () => console.log("Ready. React to any log message to delete it from it's source channel."));
-client.on("disconnect", () => { console.log("Lost Connection, Reconnecting..."); client.connect(); });
+var ready = false;
+client.on("ready", () => {ready=true;console.log("Ready. React to any log message to delete it from it's source channel.");});
+client.on("disconnect", () => {ready=false;console.log("Lost Connection, Reconnecting..."); client.connect();});
 client.on("messageCreate", message => {
   if (message.guildID !== env.GUILD_ID || message.webhookID) return;
   var log: eris.MessageContent & {
@@ -45,3 +47,4 @@ client.on("messageReactionAdd", async (_message, emoji) => {
   }).catch(() => { });
 });
 client.connect();
+http.createServer((_,res)=>{res.writeHead(ready?501:200,{'content-type':'text/json'});res.end(ready?"{\"ready\":true,\"message\":\"Ready. React to any log message to delete it from it's source channel.\"}":"{\"ready\":false,\"message\":\"Lost Connection, Reconnecting...\"}");}).listen(8080);

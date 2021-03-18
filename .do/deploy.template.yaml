@@ -1,9 +1,10 @@
 spec:
   name: discord-god-eyes
   region: sfo
-  workers:
+  services:
   - name: discord-god-eyes
     dockerfile_path: Dockerfile
+    http_port: 8080
     git:
       branch: master
       repo_clone_url: https://github.com/eeveeboo/discord-god-eyes.git
